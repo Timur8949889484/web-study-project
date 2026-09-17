@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Главная — Учебный проект по HTML</title>
+
+    <meta
+      name="description"
+      content="Учебный проект по изучению семантической верстки, доступности и веб-разработке."
+    />
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:title" content="Главная — Учебный проект по HTML" />
+    <meta
+      property="og:description"
+      content="Учимся верстать семантично и доступно с нуля."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://example.com/preview.jpg" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <!-- Добавлен aria-label для навигации -->
+      <nav aria-label="Основное меню">
+        <ul>
+          <li><a href="index.html" aria-current="page">Главная</a></li>
+          <li><a href="about.html">О нас</a></li>
+          <li><a href="contact.html">Контакты</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <h1 class="main-title">Обучение веб-разработке</h1>
+
+      <section aria-labelledby="stage-heading">
+        <h2 id="stage-heading">Этап 1: Базовый веб</h2>
+
+        <article>
+          <h3>HTML и CSS</h3>
+          <p>
+            Изучаем <strong>семантику</strong> и <em>адаптивную верстку</em>.
+          </p>
+
+          <!-- Добавлен информативный alt и опционально picture -->
+          <picture>
+            <source srcset="code-example.webp" type="image/webp" />
+            <img
+              src="code-example.jpg"
+              alt="Код HTML с правильной семантикой в редакторе VS Code"
+            />
+          </picture>
+
+          <h4>Что мы уже умеем:</h4>
+          <ul>
+            <li>Создавать семантическую структуру</li>
+            <li>Работать с формами и кнопками</li>
+            <li>Связывать лейблы с инпутами</li>
+          </ul>
+
+          <ol>
+            <li>Шаг 1: Разметка</li>
+            <li>Шаг 2: Стили</li>
+            <li>Шаг 3: Скрипты</li>
+          </ol>
+
+          <button type="button">Показать подробности</button>
+        </article>
+      </section>
+
+      <div class="my-card"><a href="#">ссылка</a></div>
+      <div class="my-card different"><span class="badge">NEW</span></div>
+
+      <div class="card">
+        <span class="badge">NEW</span>
+        <p>Карточка товара</p>
+        <a href="#">Подробнее</a>
+        <button type="button">Купить</button>
+      </div>
+
+      <section class="demo-section">
+        <h2>1. Типы отображения(display)</h2>
+
+        <p class="desc">
+          <strong>display: block</strong> - занимают 100% ширины, переносят
+          следующую строку, принимают width/height/margin/padding.
+        </p>
+        <div class="box-block">Блок 1 (div)</div>
+        <div class="box-block">Блок 2 (div)</div>
+
+        <p class="desc">
+          <strong>display: inline</strong> - идут в одну строку, игнорируют
+          width, height и вертикальные margin.
+        </p>
+        <div class="box-inline">Блок 1 (div)</div>
+        <div class="box-inline">Блок 2 (div)</div>
+
+        <p class="desc">
+          <strong>display: inline-block</strong> - идут в одну строку, но
+          принимают все размеры и отступы.
+        </p>
+        <div class="box-inline-block">Блок 1 (div)</div>
+        <div class="box-inline-block">Блок 2 (div)</div>
+      </section>
+
+      <section class="demo-section">
+        <h2>2. Блочная модель (Box Model)</h2>
+
+        <p class="desc">
+          Наглядная демонстрация Content -> Padding -> Border -> Margin:
+        </p>
+
+        <div class="box-model-outer">
+          <div class="box-model-inner">Я контент блока</div>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>3. Позиционирование (position)</h2>
+
+        <!-- Static -->
+        <p class="desc">
+          <strong>static</strong> (по умолчанию): обычный поток,
+          top/left/z-index не работают.
+        </p>
+        <div class="pos-box pos-static">Static</div>
+
+        <!-- Relative -->
+        <p class="desc">
+          <strong>relative</strong>: сдвигается относительно своего обычного
+          места, не смещая соседей.
+        </p>
+        <div class="pos-box pos-relative">Relative (top: 10px, left: 20px)</div>
+
+        <!-- Relative + Absolute -->
+        <p class="desc">
+          <strong>absolute</strong>: выпадает из потока, позиционируется
+          относительно родителя с relative.
+        </p>
+        <div class="pos-container">
+          <span>Родитель (position: relative)</span>
+          <div class="pos-box pos-absolute">
+            Absolute (top: 10px, right: 10px)
+          </div>
+        </div>
+
+        <!-- Sticky -->
+        <p class="desc">
+          <strong>sticky</strong>: скролль страницу ниже, чтобы увидеть, как
+          этот блок "прилипнет".
+        </p>
+        <div class="pos-box pos-sticky">
+          Sticky (залипает вверху при скролле)
+        </div>
+      </section>
+
+      <!-- Fixed (привязан к окну браузера) -->
+      <div class="pos-box pos-fixed">Fixed (Кнопка поддержки)</div>
+
+      <section class="demo-section">
+        <h2>4. Сеточный каркас: Flexbox</h2>
+
+        <p class="desc">
+          <strong>1. Выравнивание по главной оси (justify-content):</strong>
+        </p>
+        <div class="flex-container flex-justify">
+          <div class="flex-item">1</div>
+          <div class="flex-item">2</div>
+          <div class="flex-item">3</div>
+        </div>
+
+        <p class="desc">
+          <strong
+            >2. Направление (flex-direction: column) и разрыв (gap):</strong
+          >
+        </p>
+        <div class="flex-container flex-column">
+          <div class="flex-item">Карточка A</div>
+          <div class="flex-item">Карточка B</div>
+        </div>
+
+        <p class="desc">
+          <strong
+            >3. Автоматический перенос и гибкость (flex: 1 1 200px):</strong
+          >
+        </p>
+        <div class="flex-container flex-wrap">
+          <div class="flex-item wide">Блок 1</div>
+          <div class="flex-item wide">Блок 2</div>
+          <div class="flex-item wide">Блок 3</div>
+        </div>
+
+        <!-- НОВЫЕ ПРИМЕРЫ -->
+
+        <p class="desc">
+          <strong
+            >4. Фиксированная базовая ширина (flex: 0 0 200px) без
+            растяжения:</strong
+          >
+        </p>
+        <div class="flex-container flex-wrap">
+          <div class="flex-item fixed-size">Блок 1 (200px)</div>
+          <div class="flex-item fixed-size">Блок 2 (200px)</div>
+          <div class="flex-item fixed-size">Блок 3 (200px)</div>
+        </div>
+
+        <p class="desc">
+          <strong
+            >5. Пропорции роста (flex-grow): 1 часть vs 2 части vs 0:</strong
+          >
+        </p>
+        <div class="flex-container">
+          <div class="flex-item grow-1">grow: 1</div>
+          <div class="flex-item grow-2">grow: 2 (в 2 раза шире)</div>
+          <div class="flex-item grow-0">grow: 0 (по контенту)</div>
+        </div>
+
+        <p class="desc">
+          <strong
+            >6. Персональное выравнивание (align-self) и порядок
+            (order):</strong
+          >
+        </p>
+        <div class="flex-container flex-custom-align">
+          <div class="flex-item order-2">1 (order: 2)</div>
+          <div class="flex-item self-end order-1">
+            2 (align-self: flex-end, order: 1)
+          </div>
+          <div class="flex-item order-3">3 (order: 3)</div>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>5. Сеточный каркас: CSS Grid</h2>
+
+        <p class="desc"><strong>1. Фиксированная сетка (3 колонки):</strong></p>
+        <div class="grid-container grid-fixed">
+          <div class="grid-item">1</div>
+          <div class="grid-item">2</div>
+          <div class="grid-item">3</div>
+          <div class="grid-item">4</div>
+          <div class="grid-item">5</div>
+          <div class="grid-item">6</div>
+        </div>
+
+        <p class="desc">
+          <strong
+            >2. Адаптивная сетка без медиазапросов (auto-fit + minmax):</strong
+          >
+        </p>
+        <div class="grid-container grid-auto">
+          <div class="grid-item">Карточка 1</div>
+          <div class="grid-item">Карточка 2</div>
+          <div class="grid-item">Карточка 3</div>
+          <div class="grid-item">Карточка 4</div>
+        </div>
+
+        <p class="desc">
+          <strong>3. Разные размеры колонок (1fr 2fr 1fr):</strong>
+        </p>
+        <div class="grid-container grid-custom-fr">
+          <div class="grid-item">Боковая (1fr)</div>
+          <div class="grid-item main-col">Главный контент (2fr)</div>
+          <div class="grid-item">Виджет (1fr)</div>
+        </div>
+
+        <p class="desc">
+          <strong>4. Объединение ячеек (grid-column / grid-row):</strong>
+        </p>
+        <div class="grid-container grid-span">
+          <div class="grid-item header-span">Шапка (на 3 колонки)</div>
+          <div class="grid-item sidebar-span">Боковая панель (на 2 строки)</div>
+          <div class="grid-item">
+            ajmdsakjdlskajslkjsalkjsalkjsaldkjsakdjsadjsadjslakdjkdjsdjsadlasdjksdjlkadjadjkls
+          </div>
+          <div class="grid-item">Блок 2</div>
+          <div class="grid-item">Блок 3</div>
+          <div class="grid-item">Блок 4</div>
+        </div>
+
+        <p class="desc">
+          <strong>5. Именованные области (grid-template-areas):</strong>
+        </p>
+        <div class="grid-container grid-areas">
+          <header class="grid-item area-header">Header</header>
+          <aside class="grid-item area-sidebar">Sidebar</aside>
+          <main class="grid-item area-main">Main Content</main>
+          <footer class="grid-item area-footer">Footer</footer>
+        </div>
+
+        <p class="desc">
+          <strong
+            >2b. Сравнение auto-fill vs auto-fit (мало элементов в
+            контейнере):</strong
+          >
+        </p>
+
+        <!-- auto-fill: оставляет пустые фантомные колонки -->
+        <div class="grid-container grid-autofill">
+          <div class="grid-item">auto-fill (1)</div>
+          <div class="grid-item">auto-fill (2)</div>
+        </div>
+
+        <!-- auto-fit: схлопывает пустые колонки и растягивает элементы -->
+        <div class="grid-container grid-autofit">
+          <div class="grid-item">auto-fit (1)</div>
+          <div class="grid-item">auto-fit (2)</div>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>6. Адаптивность: Mobile First & Media Queries</h2>
+        <div class="responsive-card">
+          <h3>Адаптивная карточка</h3>
+          <p>Измени ширину окна браузера, чтобы увидеть магию перестроения.</p>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>7. Относительные единицы измерения (rem, em, %, vw, vh)</h2>
+
+        <!-- 1. rem vs em -->
+        <p class="desc">
+          <strong>1. rem vs em (Зависимость от шрифта):</strong>
+        </p>
+        <div class="units-parent">
+          <p class="text-rem">
+            Я использую 1.5rem (завишу от html = 16px * 1.5 = 24px)
+          </p>
+          <p class="text-em">
+            Я использую 1.5em (завишу от размера шрифта родителя = 24px * 1.5 =
+            36px)
+          </p>
+        </div>
+
+        <!-- 2. Проценты % -->
+        <p class="desc"><strong>2. Проценты (% от ширины родителя):</strong></p>
+        <div class="percent-parent">
+          <div class="percent-child-50">Ширина 50%</div>
+          <div class="percent-child-80">Ширина 80%</div>
+        </div>
+
+        <!-- 3. Viewport units (vw / vh) -->
+        <p class="desc">
+          <strong>3. Viewport Units (% от видимого окна браузера):</strong>
+        </p>
+        <div class="viewport-box">
+          <p>Моя ширина — 50vw (половина экрана браузера)</p>
+          <p>Моя высота — 15vh (15% от высоты экрана браузера)</p>
+        </div>
+      </section>
+
+      <aside aria-label="Дополнительные ресурсы">
+        <h2>Полезные ссылки</h2>
+        <!-- Добавлен aria-label, объясняющий, что ссылка откроется в новом окне -->
+        <a
+          href="https://developer.mozilla.org"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Документация MDN (открывается в новой вкладке)"
+        >
+          Документация MDN
+        </a>
+      </aside>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Мой учебный проект</p>
+    </footer>
+  </body>
+</html>

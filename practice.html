@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Практика</title>
+
+    <meta name="description" content="Практика" />
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:title" content="Практика" />
+    <meta property="og:description" content="Практикую" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://example.com/preview.jpg" />
+    <link rel="stylesheet" href="practice.css" />
+  </head>
+  <body>
+    <a href="#main-content">Перейти к основному контенту</a>
+    <header>
+      <nav aria-label="Меню навигации">
+        <ul>
+          <li><a href="#">Обо мне</a></li>
+          <li><a href="#">Проекты</a></li>
+          <li><a href="#">Контакты</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main id="main-content">
+      <h1>Иван Иванов — Frontend Developer</h1>
+
+      <img src="Рисунок" alt="Узор" aria-hidden="true" />
+
+      <section aria-labelledby="about-heading">
+        <h2 id="about-heading">Заголовок</h2>
+        <picture>
+          <source srcset="картинка.webp" type="image/webp" />
+          <img src="картинка.png" alt="Карточка аватарки" />
+        </picture>
+        <p>Абзац с <strong>важными</strong> словами №1</p>
+        <p>Абзац с <strong>важными</strong> словами №2</p>
+        <p>Абзац с <strong>важными</strong> словами №3</p>
+      </section>
+
+      <section aria-labelledby="projects-heading">
+        <h2 id="projects-heading">Мои проекты</h2>
+
+        <article>
+          <h3>Карта №1</h3>
+          <ul>
+            <li>Технология №1</li>
+            <li>Технология №2</li>
+            <li>Технология №3</li>
+          </ul>
+          <a href="#">Посмотреть демо </a>
+          <button type="button" class="btn">Посмотреть код</button>
+        </article>
+
+        <article>
+          <h3>Карта №2</h3>
+          <ul>
+            <li>Технология №1</li>
+            <li>Технология №2</li>
+            <li>Технология №3</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="block-container" aria-labelledby="block-heading">
+        <h2 id="block-heading">Показ блоков</h2>
+
+        <div class="box-block">Box-block</div>
+        <div class="box-inline">Box-inline</div>
+        <div class="box-inline-block">Box-inline-block</div>
+      </section>
+
+      <section class="pos-container" aria-labelledby="pos-heading">
+        <h2 id="pos-heading">Позиционирование</h2>
+        <section class="pos-container" aria-labelledby="pos-heading">
+          <h2 id="pos-heading">Позиционирование</h2>
+          <!-- Абсолютный блок лежит внутри родителя с position: relative -->
+          <div class="pos-absolute">position: absolute</div>
+        </section>
+        <div class="pos-absolute">position: absolute</div>
+      </section>
+
+      <section class="flex-section" aria-labelledby="flex-heading">
+        <h2 id="flex-heading">Flexbox</h2>
+
+        <p>Флексбокс</p>
+        <div class="flex-container">
+          <div class="flex-item">Flex item</div>
+          <div class="flex-item">Flex item</div>
+          <div class="flex-item">Flex item</div>
+        </div>
+
+        <p>Флексбокс flex-justify</p>
+        <div class="flex-container flex-justify">
+          <div class="flex-item">Flex item</div>
+          <div class="flex-item">Flex item</div>
+          <div class="flex-item">Flex item</div>
+        </div>
+
+        <p>Флексбокс flex-column</p>
+        <div class="flex-container flex-column">
+          <div class="flex-item">Flex item</div>
+          <div class="flex-item">Flex item</div>
+          <div class="flex-item">Flex item</div>
+        </div>
+      </section>
+
+      <section class="grid-section" aria-labelledby="grid-heading">
+        <h2 id="grid-heading">Grid</h2>
+
+        <p>Гридбокс</p>
+        <div class="grid-container">
+          <div class="grid-item">Grid item</div>
+          <div class="grid-item">Grid item</div>
+          <div class="grid-item">Grid item</div>
+        </div>
+
+        <p>Гридбокс grid-fixed</p>
+        <div class="grid-container grid-fixed">
+          <div class="grid-item">Grid item</div>
+          <div class="grid-item">Grid item</div>
+          <div class="grid-item">Grid item</div>
+        </div>
+
+        <p>Гридбокс grid-auto</p>
+        <div class="grid-container grid-auto">
+          <div class="grid-item">Grid item</div>
+          <div class="grid-item">Grid item</div>
+          <div class="grid-item">Grid item</div>
+        </div>
+      </section>
+
+      <section aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Связаться со мной</h2>
+
+        <form action="#" method="POST">
+          <div>
+            <label for="text-field">текст </label>
+            <input
+              type="text"
+              id="text-field"
+              name="text-field"
+              placeholder="место для текста"
+              required
+            />
+          </div>
+
+          <div>
+            <label for="email-field">текст для почты</label>
+            <input
+              type="email"
+              id="email-field"
+              name="email-field"
+              placeholder="место для почты"
+              autocomplete="email"
+              required
+            />
+          </div>
+
+          <div>
+            <!-- label связывается с select через id точно так же, как с input -->
+            <label for="subject-field">Тема обращения:</label>
+            <select id="subject-field" name="subject" required>
+              <option value="" disabled selected>Выберите тему...</option>
+              <option value="job">Предложение работы</option>
+              <option value="freelance">Заказ на фриланс</option>
+              <option value="other">Другой вопрос</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="review">Ваше сообщение</label>
+            <textarea
+              id="review"
+              name="review"
+              rows="4"
+              placeholder="Напишите ваш отзыв сюда"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn">Отправить</button>
+        </form>
+      </section>
+
+      <div class="card card--active">
+        <h3 class="card__title">Заголовок</h3>
+        <button class="card__button card__button--red">Купить</button>
+      </div>
+
+      <div class="user-profile user-profile--dark">
+        <img
+          src="аватарка.png"
+          alt="Аватарка пользователя"
+          class="user-profile__img"
+        />
+        <h3 class="user-profile__name">Имя пользователя</h3>
+      </div>
+
+      <aside>
+        <h2>Сайдбар</h2>
+        <p>Доп информация</p>
+        <button type="button" aria-label="Закрыть сайдбар" class="btn">
+          <span aria-hidden="true">X</span>
+        </button>
+      </aside>
+    </main>
+
+    <footer>
+      <p>&copy; копирайт</p>
+    </footer>
+  </body>
+</html>

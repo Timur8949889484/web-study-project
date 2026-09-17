@@ -1,0 +1,484 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  line-height: 1.5;
+  color: blue;
+  background-color: lightblue;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+.main-title {
+  font-size: 2.5rem;
+  color: darkblue;
+  text-align: center;
+}
+
+.my-card {
+  width: 300px;
+  padding: 20px;
+  margin: 50px auto;
+  border: 2px solid darkblue;
+
+  &.different {
+    position: relative;
+
+    .badge {
+      position: absolute;
+      top: 0px;
+      right: 5px;
+    }
+  }
+}
+
+.card {
+  width: 300px;
+  padding: 20px;
+  margin: 50px auto;
+  border: 2px solid darkblue;
+  background-color: #ffffff;
+
+  /* 1. Делаем карточку якорем для абсолютных элементов внутри */
+  position: relative;
+}
+
+/* 2. Позиционируем бейдж относительно .card */
+.card .badge {
+  position: absolute;
+  top: 10px; /* Отступ от верхнего края карточки */
+  right: 10px; /* Отступ от правого края карточки */
+
+  /* Внешний вид бейджа */
+  background-color: red;
+  color: white;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+/* Базовые стили для секций */
+.demo-section {
+  background-color: #ffffff;
+  padding: 24px;
+  margin: 30px auto;
+  max-width: 800px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.desc {
+  margin: 15px 0 5px;
+  color: #444444;
+}
+
+/* --- Block --- */
+.box-block {
+  display: block;
+  width: 200px; /* Работает */
+  height: 40px; /* Работает */
+  margin: 10px 0; /* Работает со всех сторон */
+  padding: 10px; /* Работает */
+  background-color: #ffebee;
+  border: 2px solid #ef5350;
+}
+
+/* --- Inline --- */
+.box-inline {
+  display: inline;
+  width: 300px; /* Игнорируется! */
+  height: 100px; /* Игнорируется! */
+  margin: 30px 10px; /* Слева/справа работает, сверху/снизу — игнорируется! */
+  padding: 5px 10px;
+  background-color: #e8f5e9;
+  border: 2px solid #66bb6a;
+}
+
+/* --- Inline-Block --- */
+.box-inline-block {
+  display: inline-block;
+  width: 140px; /* Работает! */
+  height: 45px; /* Работает! */
+  margin: 10px 5px; /* Работает со всех сторон! */
+  padding: 8px;
+  background-color: #e3f2fd;
+  border: 2px solid #42a5f5;
+  cursor: pointer;
+}
+
+.box-model-outer {
+  /* Margin (Внешний отступ) — создает дистанцию вокруг элемента */
+  margin: 40px auto;
+
+  /* Border (Рамка) — толщина, стиль и цвет */
+  border-top: 4px solid #d32f2f;
+  border-right: 4px dashed #1976d2;
+  border-bottom: 4px dotted #388e3c;
+  border-left: 4px double #fbc02d;
+
+  /* Padding (Внутренний отступ) — раздувает элемент изнутри, окрашиваясь его фоном */
+  /* Запись по часовой стрелке: Top (20px), Right (40px), Bottom (20px), Left (40px) */
+  padding: 20px 40px 20px 40px;
+
+  background-color: #fff9c4;
+  width: 350px;
+}
+
+.box-model-inner {
+  background-color: #b3e5fc;
+  padding: 15px;
+  text-align: center;
+  font-weight: bold;
+  border: 1px dashed #0288d1;
+}
+
+/* Общие стили для коробок позиционирования */
+.pos-box {
+  padding: 10px 15px;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+/* 1. Static */
+.pos-static {
+  position: static;
+  background-color: #78909c;
+  top: 50px; /* Игнорируется! */
+}
+
+/* 2. Relative */
+.pos-relative {
+  position: relative;
+  top: 10px;
+  left: 20px;
+  background-color: #ab47bc;
+}
+
+/* 3. Absolute (Контейнер-родитель + абсолютный ребёнок) */
+.pos-container {
+  position: relative; /* Якорь для absolute */
+  height: 100px;
+  background-color: #f5f5f5;
+  border: 2px dashed #bdbdbd;
+  padding: 10px;
+  margin-top: 15px;
+}
+
+.pos-absolute {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #e65100;
+  z-index: 10; /* Управляет слоем перекрытия */
+}
+
+/* 4. Sticky */
+.pos-sticky {
+  position: sticky;
+  top: 10px; /* Точка прилипания к верху экрана */
+  background-color: #2e7d32;
+  margin-top: 15px;
+  z-index: 5;
+}
+
+/* 5. Fixed */
+.pos-fixed {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #d81b60;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 1000; /* Всегда поверх всех элементов */
+}
+
+/* --- СТАРЫЕ СТИЛИ (сохраняем) --- */
+.flex-container {
+  display: flex;
+  background-color: #f0f4f8;
+  padding: 15px;
+  border-radius: 6px;
+  min-height: 100px;
+  margin-top: 10px;
+}
+
+.flex-item {
+  background-color: #0288d1;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 4px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.flex-justify {
+  justify-content: space-around;
+  align-items: center;
+  gap: 15px;
+}
+
+.flex-column {
+  flex-direction: column;
+  gap: 10px;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.flex-item.wide {
+  flex: 1 1 200px;
+}
+
+/* --- НОВЫЕ СТИЛИ ДЛЯ РАЗБОРА --- */
+
+/* 4. Отключение роста: flex: 0 0 200px (grow | shrink | basis) */
+.flex-item.fixed-size {
+  flex: 0 0 200px; /* Не растет (0), не сжимается (0), строго 200px */
+  background-color: #7b1fa2;
+}
+
+/* 5. Управление пропорциями роста */
+.grow-1 {
+  flex-grow: 1;
+  background-color: #00897b;
+}
+
+.grow-2 {
+  flex-grow: 2; /* Забирает в 2 раза больше оставшегося места */
+  background-color: #f57c00;
+}
+
+.grow-0 {
+  flex-grow: 0; /* Не претендует на свободное место */
+  background-color: #555555;
+}
+
+/* 6. Специфическое выравнивание и порядок */
+.flex-custom-align {
+  gap: 15px;
+  align-items: flex-start; /* Все элементы по умолчанию сверху */
+}
+
+.self-end {
+  align-self: flex-end; /* Переопределяет align-items только для себя (уходит вниз) */
+  background-color: #d81b60;
+}
+
+.order-1 {
+  order: 1;
+} /* Встанет первым в визуальном потоке */
+.order-2 {
+  order: 2;
+}
+.order-3 {
+  order: 3;
+}
+
+/* Базовый грид-контейнер */
+.grid-container {
+  display: grid;
+  gap: 15px; /* Отступы между колонками и строками */
+  background-color: #f0f4f8;
+  padding: 15px;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+.grid-item {
+  background-color: #673ab7;
+  color: white;
+  padding: 20px;
+  border-radius: 4px;
+  font-weight: bold;
+  text-align: center;
+  word-break: break-word;
+}
+
+/* 1. Жесткие колонки (3 равные колонки с помощью фракций fr) */
+.grid-fixed {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+}
+
+/* 2. Магия адаптивности: минимальная ширина карточки 180px, максимальная — 1fr */
+.grid-auto {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+/* 3. Непропорциональные колонки */
+.grid-custom-fr {
+  grid-template-columns: 1fr 2fr 1fr; /* Средняя колонка ровно в 2 раза шире боковых */
+}
+
+.main-col {
+  background-color: #2a0f68;
+}
+
+/* 4. Объединение ячеек по сетке */
+.grid-span {
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(60px, auto);
+}
+
+.header-span {
+  grid-column: 1 / -1; /* Растягивается от первой (1) до последней (-1) линии колонок */
+  background-color: #00796b;
+}
+
+.sidebar-span {
+  grid-row: span 2; /* Занимает 2 строки по вертикали */
+  background-color: #e65100;
+}
+
+/* 5. Именованные области (Layout страницы) */
+.grid-areas {
+  grid-template-areas:
+    "head head"
+    "side main"
+    "foot foot";
+  grid-template-columns: 200px 1fr; /* Левая колонка 200px, правая забирает остаток */
+  gap: 10px;
+}
+
+.area-header {
+  grid-area: head;
+  background-color: #3f51b5;
+}
+.area-sidebar {
+  grid-area: side;
+  background-color: #009688;
+}
+.area-main {
+  grid-area: main;
+  background-color: #8e24aa;
+}
+.area-footer {
+  grid-area: foot;
+  background-color: #455a64;
+}
+
+/* auto-fill: держит пустые колонки про запас */
+.grid-autofill {
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+}
+
+/* auto-fit: растягивает элементы на всё доступное пространство */
+.grid-autofit {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+/* Базовые стили для мобилок (до 767px) */
+.responsive-card {
+  background-color: #e1f5fe;
+  padding: 1rem; /* Используем rem вместо px */
+  border-left: 5px solid #0288d1;
+  border-radius: 4px;
+}
+
+.responsive-card h3 {
+  font-size: 1.2rem;
+  color: #01579b;
+}
+
+/* Breakpoint 1: Планшеты (от 768px) */
+@media (min-width: 768px) {
+  .responsive-card {
+    background-color: #e8f5e9;
+    border-left-color: #388e3c;
+    padding: 1.5rem;
+  }
+  .responsive-card h3 {
+    font-size: 1.5rem;
+    color: #1b5e20;
+  }
+}
+
+/* Breakpoint 2: Десктоп (от 1024px) */
+@media (min-width: 1024px) {
+  .responsive-card {
+    background-color: #f3e5f5;
+    border-left-color: #7b1fa2;
+    padding: 2rem;
+    max-width: 800px;
+  }
+  .responsive-card h3 {
+    font-size: 1.8rem;
+    color: #4a148c;
+  }
+}
+
+/* --- 1. REM vs EM --- */
+.units-parent {
+  /* Задаем родителю размер шрифта 24px для наглядности */
+  font-size: 24px;
+  background-color: #f1f8e9;
+  padding: 1rem;
+  border: 1px dashed #689f38;
+}
+
+.text-rem {
+  /* 1.5rem берут значение от корня HTML (по умолчанию 16px) => 16 * 1.5 = 24px */
+  font-size: 1.5rem;
+  color: #2e7d32;
+  margin-bottom: 10px;
+}
+
+.text-em {
+  /* 1.5em берут значение от своего РОДИТЕЛЯ .units-parent (24px) => 24 * 1.5 = 36px */
+  font-size: 1.5em;
+  color: #1b5e20;
+}
+
+/* --- 2. Проценты (%) --- */
+.percent-parent {
+  width: 100%;
+  background-color: #e0f2f1;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.percent-child-50 {
+  width: 50%; /* Ровно половина ширины .percent-parent */
+  background-color: #00897b;
+  color: white;
+  padding: 8px;
+  margin-bottom: 8px;
+}
+
+.percent-child-80 {
+  width: 80%; /* 80% от ширины .percent-parent */
+  background-color: #004d40;
+  color: white;
+  padding: 8px;
+}
+
+/* --- 3. Viewport units (vw / vh) --- */
+.viewport-box {
+  /* Игнорирует ширину родителя и берет 50% от ВСЕЙ ширины экрана (viewport) */
+  width: 50vw;
+  /* Берет 15% от ВСЕЙ высоты окна браузера */
+  height: 15vh;
+  background-color: #fff3e0;
+  border: 2px solid #ef6c00;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

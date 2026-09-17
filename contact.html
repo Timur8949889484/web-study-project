@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Контакты — Учебный проект по HTML</title>
+
+    <meta
+      name="description"
+      content="Свяжитесь с нами через форму обратной связи для вопросов и предложений."
+    />
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:title" content="Контакты — Учебный проект по HTML" />
+    <meta
+      property="og:description"
+      content="Форма обратной связи и контактная информация."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://example.com/contact-preview.jpg"
+    />
+  </head>
+  <body>
+    <header>
+      <nav aria-label="Основное меню">
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="about.html">О нас</a></li>
+          <li><a href="contact.html" aria-current="page">Контакты</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <h1>Обратная связь</h1>
+
+      <section aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Напишите нам</h2>
+
+        <form action="#" method="POST" aria-labelledby="contact-heading">
+          <div>
+            <label for="email-field">Электронная почта:</label>
+            <input
+              type="email"
+              id="email-field"
+              name="email"
+              placeholder="alex@example.com"
+              required
+              autocomplete="email"
+              minlength="5"
+              maxlength="50"
+              aria-required="true"
+            />
+          </div>
+
+          <div>
+            <label for="review">Ваш отзыв:</label>
+            <textarea
+              id="review"
+              name="review"
+              rows="4"
+              placeholder="Напишите, что вам понравилось..."
+            ></textarea>
+          </div>
+
+          <button type="submit">Отправить</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Мой учебный проект</p>
+    </footer>
+  </body>
+</html>
